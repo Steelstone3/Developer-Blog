@@ -1,8 +1,7 @@
 use style::global_style;
 use yew::prelude::*;
 
-mod client;
-mod server;
+mod views;
 mod style;
 
 struct Model {

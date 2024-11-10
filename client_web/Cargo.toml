@@ -1,10 +1,10 @@
 [package]
-name = "bubbles-dive-planner-web-app"
-version = "0.1.0"
+name = "developer-blog-client-web"
+version = "0.2.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
-homepage = "https://github.com/Steelstone3/Bubbles-Dive-Planner/tree/web-app"
-repository = "https://github.com/Steelstone3/Bubbles-Dive-Planner/tree/web-app"
+homepage = "https://github.com/Steelstone3/Developer-Blog"
+repository = "https://github.com/Steelstone3/Developer-Blog"
 license = "GPLv3"
 readme = "README.md"
 include = []
@@ -25,9 +25,9 @@ opt-level = 0
 [profile.dev.package."*"]
 opt-level = 3
 
-[dev-dependencies]
-rstest = "0"
-
 [dependencies]
 yew = { version = "0.21", features = ["csr"] }
 stylist = { version = "0.13", features = ["yew_integration"] }
+serde = { version = "1.0", features = ["derive"] }
+reqwasm = "0.5"
+web-sys = "0.3"
