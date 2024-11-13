@@ -1,11 +1,14 @@
-use axum::{
-    http::Method,
-    Router,
+use super::{
+    example_router::build_example_router, profiles_router::build_profiles_router,
+    static_router::build_static_router,
 };
-use tokio::net::TcpListener;
+use axum::{http::Method, Router};
+use developer_blog_business::models::profile_store::ProfileStore;
+use std::sync::Arc;
+use tokio::{net::TcpListener, sync::RwLock};
 use tower_http::cors::CorsLayer;
 
-use super::{profiles_router::build_profiles_router, static_router::build_static_router};
+pub type Database = Arc<RwLock<ProfileStore>>;
 
 pub async fn run_server() {
     let router = build_router();
@@ -22,26 +25,10 @@ fn build_router() -> Router {
 
     Router::new()
         .merge(build_profiles_router())
+        .merge(build_example_router())
         .fallback_service(build_static_router())
         .layer(cors)
 }
-
-// Routers
-
-// #[allow(dead_code)]
-// fn build_hello_router() -> Router {
-//     Router::new()
-//         .route("/hello", get(hello_world))
-//         .route("/hello_2", get(hello_world_2))
-//         .route("/hello_3/:name", get(hello_world_3))
-// }
-
-// Models
-
-// #[derive(Deserialize)]
-// pub struct HelloParameters {
-//     name: Option<String>,
-// }
 
 // Controllers
 

@@ -1,16 +1,13 @@
+use developer_blog_business::models::example::Model;
 use style::global_style;
 use yew::prelude::*;
 
-mod views;
 mod style;
-
-struct Model {
-    value: i32,
-}
+mod views;
 
 #[function_component(App)]
 fn app() -> Html {
-      let state = use_state(|| Model { value: 0 });
+    let state = use_state(|| Model { value: 0 });
 
     let on_click = {
         let state = state.clone();
@@ -24,11 +21,11 @@ fn app() -> Html {
 
     html! {
         <div>
-        <style>{global_style()}</style>
-            <style>
+            <style>{global_style()}</style>
 
-            </style>
-
+            // <routes>
+            //     <route path={Path::Example.to_string()} element={""}/>
+            // </routes>
             <button onclick={on_click}>{"+1"} </button>
             <p>{state.value}</p>
         </div>

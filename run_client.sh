@@ -1,6 +1,6 @@
 cargo install trunk
 
-cd shared
+cd business
 
 cargo build
 

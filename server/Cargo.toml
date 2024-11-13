@@ -1,6 +1,6 @@
 [package]
 name = "developer-blog-server"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
 homepage = "https://github.com/Steelstone3/Developer-Blog"
@@ -29,7 +29,7 @@ opt-level = 3
 axum = { version = "0.7" }
 tower-http = { version = "0.6", features = ["cors", "fs"] }
 tokio = { version = "1", features = ["full"] }
-developer-blog-shared = { path = "../shared" }
+developer-blog-business = { path = "../business" }
 # serde = { version = "1", features = ["derive"] }
 # serde_json = "1"
 # surrealdb = "2"

@@ -1,4 +1,4 @@
-cd shared
+cd business
 
 cargo build
 

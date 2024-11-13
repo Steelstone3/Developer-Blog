@@ -1,6 +1,6 @@
 [package]
-name = "developer-blog-shared"
-version = "0.3.0"
+name = "developer-blog-business"
+version = "0.4.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
 homepage = "https://github.com/Steelstone3/Developer-Blog"
@@ -27,3 +27,4 @@ opt-level = 3
 
 [dependencies]
 serde = { version = "1", features = ["derive"] }
+serde_json = "1"

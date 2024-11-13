@@ -1,6 +1,6 @@
 [package]
 name = "developer-blog-client-web"
-version = "0.3.0"
+version = "0.4.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
 homepage = "https://github.com/Steelstone3/Developer-Blog"
@@ -31,4 +31,4 @@ stylist = { version = "0.13", features = ["yew_integration"] }
 serde = { version = "1.0", features = ["derive"] }
 reqwasm = "0.5"
 web-sys = "0.3"
-developer-blog-shared = { path = "../shared" }
+developer-blog-business = { path = "../business" }

@@ -1,6 +1,6 @@
 use routes::router::run_server;
 
-mod controllers;
+mod handlers;
 mod routes;
 
 #[tokio::main]
