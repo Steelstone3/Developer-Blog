@@ -1,6 +1,6 @@
+pub mod blog_post;
+pub mod blog_store;
 pub mod example;
-pub mod id_profile;
+pub mod id_blog_post;
 pub mod pagination;
-pub mod profile;
-pub mod profile_store;
-pub mod update_profile;
+pub mod update_blog_post;

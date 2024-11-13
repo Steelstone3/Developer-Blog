@@ -2,8 +2,8 @@ use std::fmt::{Display, Formatter, Result};
 
 pub enum Path {
     Root,
-    Profiles,
-    ProfileId,
+    Blogs,
+    BlogId,
     Example,
 }
 
@@ -11,8 +11,8 @@ impl Display for Path {
     fn fmt(&self, formatter: &mut Formatter<'_>) -> Result {
         match self {
             Path::Root => write!(formatter, "/"),
-            Path::Profiles => write!(formatter, "/profiles"),
-            Path::ProfileId => write!(formatter, "/profiles/:id"),
+            Path::Blogs => write!(formatter, "/blogs"),
+            Path::BlogId => write!(formatter, "/blog/:id"),
             Path::Example => write!(formatter, "/example"),
         }
     }
