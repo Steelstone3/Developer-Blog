@@ -1,5 +1,5 @@
 [package]
-name = "developer-blog-client-web"
+name = "developer-blog-shared"
 version = "0.3.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
@@ -26,9 +26,4 @@ opt-level = 0
 opt-level = 3
 
 [dependencies]
-yew = { version = "0.21", features = ["csr"] }
-stylist = { version = "0.13", features = ["yew_integration"] }
-serde = { version = "1.0", features = ["derive"] }
-reqwasm = "0.5"
-web-sys = "0.3"
-developer-blog-shared = { path = "../shared" }
+serde = { version = "1", features = ["derive"] }

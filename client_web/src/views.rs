@@ -1,1 +1,1 @@
-pub mod publish_blog;
+pub mod profiles;

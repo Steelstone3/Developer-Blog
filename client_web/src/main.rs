@@ -10,7 +10,7 @@ struct Model {
 
 #[function_component(App)]
 fn app() -> Html {
-    let state = use_state(|| Model { value: 0 });
+      let state = use_state(|| Model { value: 0 });
 
     let on_click = {
         let state = state.clone();

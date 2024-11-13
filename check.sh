@@ -1,8 +1,16 @@
+cd shared
+
+cargo update
+cargo clippy
+
+cd ..
 cd client_web
 
-cargo check
+cargo update
+cargo clippy
 
 cd ..
 cd server
 
-cargo check
+cargo update
+cargo clippy
