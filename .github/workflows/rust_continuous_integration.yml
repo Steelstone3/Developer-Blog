@@ -1,0 +1,106 @@
+name: Rust Continous Integration
+
+on:
+  push:
+    branches: 
+    - '**'
+  pull_request:
+    branches:
+    - '**'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  format_server:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Format
+      working-directory: ./server
+      run: cargo fmt --all -- --check
+  format_client_web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Format
+      working-directory: ./client_web
+      run: cargo fmt --all -- --check
+  format_business:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Format
+      working-directory: ./business
+      run: cargo fmt --all -- --check
+
+  lint_server:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [format_server]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Lint
+      working-directory: ./server
+      run: cargo clippy -- -D warnings
+      # run: cargo clippy
+  lint_client_web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [format_client_web]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Lint
+      working-directory: ./client_web
+      run: cargo clippy -- -D warnings
+      # run: cargo clippy
+  lint_business:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [format_business]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Lint
+      working-directory: ./business
+      run: cargo clippy -- -D warnings
+      # run: cargo clippy
+
+  test_server:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [lint_server]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Run tests
+      working-directory: ./server
+      run: cargo test
+  test_client_web:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [lint_client_web]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Run tests
+      working-directory: ./client_web
+      run: cargo test
+  test_business:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: [lint_business]
+    steps:
+    - uses: actions/checkout@v4
+    - uses: Swatinem/rust-cache@v2
+    - name: Run tests
+      working-directory: ./business
+      run: cargo test
