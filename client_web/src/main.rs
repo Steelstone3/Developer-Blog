@@ -26,8 +26,14 @@ fn app() -> Html {
             // <routes>
             //     <route path={Path::Example.to_string()} element={""}/>
             // </routes>
-            <button onclick={on_click}>{"+1"} </button>
-            <p>{state.value}</p>
+            <body>
+                <button onclick={on_click}>{"Calculate"} </button>
+                <p>{state.value}</p>
+                <h1>{"Hey"}</h1>
+                <h2>{"This Is Sparta"}</h2>
+                <p>{"England is my city. Jake Paul should have got his block knocked off."}</p>
+                <h3>{"More Boxing"}</h3>
+            </body>
         </div>
     }
 }
