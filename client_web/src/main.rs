@@ -30,8 +30,8 @@ fn app() -> Html {
                 <button onclick={on_click}>{"Calculate"} </button>
                 <p>{state.value}</p>
                 <h1>{"Hey"}</h1>
-                <h2>{"This Is Sparta"}</h2>
-                <p>{"England is my city. Jake Paul should have got his block knocked off."}</p>
+                <h2>{"Cringe"}</h2>
+                <p>{"Cringe is cringe. You are cringe."}</p>
                 <h3>{"More Boxing"}</h3>
             </body>
         </div>
