@@ -1,0 +1,12 @@
+/home/alex/develop/sources/Developer-Blog/target/debug/deps/libbitflags-b7eeda2dce97926f.rmeta: /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/iter.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/parser.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/traits.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/public.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/internal.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/external.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/external/serde.rs
+
+/home/alex/develop/sources/Developer-Blog/target/debug/deps/bitflags-b7eeda2dce97926f.d: /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/iter.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/parser.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/traits.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/public.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/internal.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/external.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/external/serde.rs
+
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/lib.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/iter.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/parser.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/traits.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/public.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/internal.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/external.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/bitflags-2.6.0/src/external/serde.rs:

@@ -1,0 +1,44 @@
+[package]
+name = "developer-blog"
+version = "0.1.0"
+authors = ["Skippy <steelstone3@gmail.com>"]
+edition = "2021"
+homepage = "https://github.com/Steelstone3/Developer-Blog"
+repository = "https://github.com/Steelstone3/Developer-Blog"
+license = "GPLv3"
+readme = "README.md"
+include = []
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+resolver = "2"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+
+[profile.dev]
+opt-level = 0
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+async_once = "0.2"
+dioxus = { version = "0.5", features= ["fullstack", "router"] }
+lazy_static = "1"
+log = "0.4"
+manganis = "0.2"
+serde = "1"
+surrealdb = {version = "2", optional = true}
+tokio = "1"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+tracing-wasm = "0.2"
+
+[features]
+default = []
+# server = ["dioxus/server", "dep:surrealdb"]
+web = ["dioxus/web"]

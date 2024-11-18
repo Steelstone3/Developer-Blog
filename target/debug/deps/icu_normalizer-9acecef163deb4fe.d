@@ -1,0 +1,11 @@
+/home/alex/develop/sources/Developer-Blog/target/debug/deps/libicu_normalizer-9acecef163deb4fe.rmeta: /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/error.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/properties.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/provider.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/uts46.rs
+
+/home/alex/develop/sources/Developer-Blog/target/debug/deps/libicu_normalizer-9acecef163deb4fe.rlib: /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/error.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/properties.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/provider.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/uts46.rs
+
+/home/alex/develop/sources/Developer-Blog/target/debug/deps/icu_normalizer-9acecef163deb4fe.d: /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/error.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/properties.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/provider.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/uts46.rs
+
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/lib.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/error.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/properties.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/provider.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/icu_normalizer-1.5.0/src/uts46.rs:

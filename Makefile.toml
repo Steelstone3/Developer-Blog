@@ -1,0 +1,4 @@
+[tasks.client]
+install_crate = "trunk"
+command = "trunk"
+args = ["serve", "--open"]

@@ -1,0 +1,10 @@
+/home/alex/develop/sources/Developer-Blog/target/debug/deps/libfutures_channel-f838f1778a4473a8.rmeta: /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/lock.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/mod.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/queue.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/sink_impl.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/oneshot.rs
+
+/home/alex/develop/sources/Developer-Blog/target/debug/deps/futures_channel-f838f1778a4473a8.d: /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/lib.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/lock.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/mod.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/queue.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/sink_impl.rs /home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/oneshot.rs
+
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/lib.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/lock.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/mod.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/queue.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/mpsc/sink_impl.rs:
+/home/alex/.cargo/registry/src/index.crates.io-6f17d22bba15001f/futures-channel-0.3.31/src/oneshot.rs:
