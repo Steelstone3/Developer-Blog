@@ -40,17 +40,17 @@ opt-level = 3
 serde = { version = "1.0", features = ["derive"] }
 
 # SERVER DEPENDENCIES
-yew-router = { version = "0.18.0" }#, optional = true }
-surrealdb = { version = "2" }#, optional = true }
+yew-router = { version = "0.18.0" } # , optional = true }
+surrealdb = { version = "2" }       #, optional = true }
 # serde_json = "1"
 
 # CLIENT DEPENDENCIES
-yew = { version = "0.21", features = ["csr"] } #, optional = true}
+yew = { version = "0.21", features = ["csr"] }                 #, optional = true}
 stylist = { version = "0.13", features = ["yew_integration"] }
 reqwasm = "0.5"
 web-sys = "0.3"
 
-# [features]
-# default = []
+[features]
+default = []
 # server = ["dep:yew-router", "dep:surrealdb"]
 # web = ["dep:yew"]
