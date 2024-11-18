@@ -1,4 +1,4 @@
-[tasks.run]
+[tasks.client]
 install_crate = "trunk"
 command = "trunk"
 args = ["serve", "--open"]
@@ -6,3 +6,14 @@ args = ["serve", "--open"]
 [tasks.lint]
 command = "cargo"
 args = ["clippy", "--all-features"]
+
+[tasks.test]
+command = "cargo"
+args = ["test", "--all-features"]
+
+[tasks.format]
+command = "cargo"
+args = ["fmt", "--all"]
+
+[tasks.submit]
+dependencies = ["format", "test", "lint"]

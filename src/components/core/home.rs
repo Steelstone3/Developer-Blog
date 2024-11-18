@@ -1,8 +1,8 @@
 use yew::prelude::*;
 
 // #[cfg(feature="web")]
-#[function_component(Home)]
-pub fn home() -> Html {
+#[function_component(Application)]
+pub fn application() -> Html {
     html! {
         <div>
             // <style>{global_style()}</style>
