@@ -7,8 +7,6 @@ mod views;
 
 #[function_component(App)]
 fn app() -> Html {
-   
-
     html! {
         <div>
             <style>{global_style()}</style>

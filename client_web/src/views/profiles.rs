@@ -23,7 +23,7 @@ pub fn simple_state_example() -> Html {
             });
         })
     };
-    
+
     html! {
         <div>
             <button onclick={increment}>{"+1 To Value"} </button>
