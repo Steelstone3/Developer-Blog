@@ -1,17 +1,8 @@
 use developer_blog_business::models::example::Model;
 use yew::{function_component, html, use_state, Callback, Html};
 
-#[function_component(SimpleExample)]
-pub fn simple_example() -> Html {
-    html! {
-        <div>
-            <p>{"Hello there!"}</p>
-        </div>
-    }
-}
-
-#[function_component(SimpleStateExample)]
-pub fn simple_state_example() -> Html {
+#[function_component(Example)]
+pub fn example() -> Html {
     let state = use_state(|| Model { value: 0 });
 
     let increment = {
@@ -29,5 +20,12 @@ pub fn simple_state_example() -> Html {
             <button onclick={increment}>{"+1 To Value"} </button>
             <p>{state.value}</p>
         </div>
+    }
+}
+
+#[function_component(Blogs)]
+pub fn blogs() -> Html {
+    html! {
+        <h1>{"This is where the blogs will go"}</h1>
     }
 }

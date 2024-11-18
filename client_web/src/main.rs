@@ -1,6 +1,8 @@
+use developer_blog_business::route::Route;
 use style::global_style;
-use views::profiles::{SimpleExample, SimpleStateExample};
+use views::view_switcher::switch_view;
 use yew::prelude::*;
+use yew_router::Switch;
 
 mod style;
 mod views;
@@ -10,17 +12,8 @@ fn app() -> Html {
     html! {
         <div>
             <style>{global_style()}</style>
-
-            // <routes>
-            //     <route path={Path::Example.to_string()} element={""}/>
-            // </routes>
             <body>
-                <SimpleExample/>
-                <SimpleStateExample />
-                <h1>{"Hey"}</h1>
-                <h2>{"How Are You?"}</h2>
-                <p>{"Learnt callbacks, hooks and components."}</p>
-                <h3>{"More Coming Soon!"}</h3>
+                <Switch<Route> render={switch_view}/>
             </body>
         </div>
     }

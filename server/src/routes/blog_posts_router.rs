@@ -2,7 +2,7 @@ use crate::handlers::blog_posts::{
     add_blog_post, delete_blog_post, get_blog_post, get_blog_posts, update_blog_post,
 };
 use axum::{routing::get, Router};
-use developer_blog_business::path::Path;
+use developer_blog_business::route::Route;
 
 use super::router::Database;
 
@@ -11,11 +11,11 @@ pub fn build_blog_posts_router() -> Router {
 
     Router::new()
         .route(
-            Path::Blogs.to_string().as_str(),
+            Route::Blogs.to_string().as_str(),
             get(get_blog_posts).post(add_blog_post),
         )
         .route(
-            Path::BlogId.to_string().as_str(),
+            Route::BlogId.to_string().as_str(),
             get(get_blog_post)
                 .delete(delete_blog_post)
                 .patch(update_blog_post),

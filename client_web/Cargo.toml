@@ -27,6 +27,7 @@ opt-level = 3
 
 [dependencies]
 yew = { version = "0.21", features = ["csr"] }
+yew-router = "0.18.0"
 stylist = { version = "0.13", features = ["yew_integration"] }
 serde = { version = "1.0", features = ["derive"] }
 reqwasm = "0.5"

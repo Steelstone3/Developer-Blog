@@ -1,3 +1,3 @@
 pub mod controllers;
 pub mod models;
-pub mod path;
+pub mod route;
