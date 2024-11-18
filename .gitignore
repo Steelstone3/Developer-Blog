@@ -20,6 +20,10 @@ client_web/dist/
 
 server/dist/
 
+target/
+
+dist/
+
 *.json
 
 *.cs
