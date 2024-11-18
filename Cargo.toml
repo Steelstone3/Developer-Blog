@@ -1,0 +1,56 @@
+[package]
+name = "developer-blog"
+version = "0.4.3"
+authors = ["Skippy <steelstone3@gmail.com>"]
+edition = "2021"
+homepage = "https://github.com/Steelstone3/Developer-Blog"
+repository = "https://github.com/Steelstone3/Developer-Blog"
+license = "GPLv3"
+readme = "README.md"
+include = []
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[workspace]
+resolver = "2"
+
+[profile.release]
+opt-level = 'z'
+lto = true
+codegen-units = 1
+
+[profile.dev]
+opt-level = 0
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[dependencies]
+# OLD SERVER DEPENDENCIES
+# axum = { version = "0.7" }
+# tower-http = { version = "0.6", features = ["cors", "fs"] }
+# tokio = { version = "1", features = ["full"] }
+# developer-blog-business = { path = "../business" }
+
+# serde = { version = "1", features = ["derive"] }
+# serde_json = "1"
+# surrealdb = "2"
+
+# SHARED DEPENDENICES
+serde = { version = "1.0", features = ["derive"] }
+
+# SERVER DEPENDENCIES
+yew-router = { version = "0.18.0" }#, optional = true }
+surrealdb = { version = "2" }#, optional = true }
+# serde_json = "1"
+
+# CLIENT DEPENDENCIES
+yew = { version = "0.21", features = ["csr"] } #, optional = true}
+stylist = { version = "0.13", features = ["yew_integration"] }
+reqwasm = "0.5"
+web-sys = "0.3"
+
+# [features]
+# default = []
+# server = ["dep:yew-router", "dep:surrealdb"]
+# web = ["dep:yew"]

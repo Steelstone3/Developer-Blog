@@ -1,0 +1,8 @@
+[tasks.run]
+install_crate = "trunk"
+command = "trunk"
+args = ["serve", "--open"]
+
+[tasks.lint]
+command = "cargo"
+args = ["clippy", "--all-features"]
