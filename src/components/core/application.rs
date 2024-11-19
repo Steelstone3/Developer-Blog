@@ -1,5 +1,8 @@
 use crate::{
-    components::{core::style::global_style, switch::switch},
+    components::{
+        core::style::global_style,
+        switch::switch,
+    },
     routes::route::Route,
 };
 use yew::{function_component, html, Html};

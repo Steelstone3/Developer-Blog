@@ -16,6 +16,7 @@ pub fn example() -> Html {
 
     html! {
         <div>
+            <Navigation/>
             <button onclick={increment}>{"+1 To Value"} </button>
             <p>{state.value}</p>
         </div>
@@ -26,6 +27,7 @@ pub fn example() -> Html {
 pub fn blogs() -> Html {
     html! {
         <div>
+            <Navigation/>
             <h1>{"This is where all the blogs will go"}</h1>
         </div>
     }
@@ -42,6 +44,8 @@ pub fn blog() -> Html {
 
 // TODO Remove example model
 use serde::Deserialize;
+
+use crate::components::core::navigation::Navigation;
 
 #[derive(Deserialize)]
 pub struct Model {
