@@ -1,4 +1,3 @@
-
 use yew::{function_component, html, use_state, Callback, Html};
 
 #[function_component(Example)]
@@ -26,14 +25,18 @@ pub fn example() -> Html {
 #[function_component(Blogs)]
 pub fn blogs() -> Html {
     html! {
-        <h1>{"This is where specific blogs will be read"}</h1>
+        <div>
+            <h1>{"This is where all the blogs will go"}</h1>
+        </div>
     }
 }
 
 #[function_component(Blog)]
 pub fn blog() -> Html {
     html! {
-        <h1>{"This is where all the blogs will go"}</h1>
+        <div>
+            <h1>{"This is where specific blogs will be read"}</h1>
+        </div>
     }
 }
 
