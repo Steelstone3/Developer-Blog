@@ -1,8 +1,12 @@
 use yew::prelude::*;
+use yew_router::Switch;
 
-use crate::components::{
-    content::blog::{Blog, Blogs, Example},
-    core::style::global_style,
+use crate::{
+    components::{
+        core::style::global_style,
+        view_switcher::switch_view,
+    },
+    routes::route::Route,
 };
 
 // #[cfg(feature="web")]
@@ -12,11 +16,10 @@ pub fn application() -> Html {
         <div>
             <style>{global_style()}</style>
             <body>
-                <p>{"hello world"}</p>
-                <Blog/>
-                <Blogs/>
-                <Example/>
-                // <Switch<Route> render={switch_view}/>
+                // <Blog/>
+                // <Blogs/>
+                // <Example/>
+                <Switch<Route> render={switch_view}/>
             </body>
         </div>
     }

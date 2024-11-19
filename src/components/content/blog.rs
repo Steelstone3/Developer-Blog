@@ -40,6 +40,15 @@ pub fn blog() -> Html {
     }
 }
 
+#[function_component(Home)]
+pub fn home() -> Html {
+    html! {
+        <div>
+            <p>{"hello world"}</p>
+        </div>
+    }
+}
+
 // TODO Remove example model
 use serde::Deserialize;
 
