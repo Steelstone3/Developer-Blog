@@ -1,25 +1,10 @@
 use yew::prelude::*;
-use yew_router::{BrowserRouter, Switch};
 
-use crate::{
-    components::{core::style::global_style, switch::switch},
-    routes::route::Route,
-};
-
-// #[cfg(feature="web")]
-#[function_component(Application)]
-pub fn application() -> Html {
+#[function_component(Home)]
+pub fn home() -> Html {
     html! {
         <div>
-            <style>{global_style()}</style>
-            <body>
-                // <Blog/>
-                // <Blogs/>
-                // <Example/>
-                <BrowserRouter>
-                    <Switch<Route> render={switch}/>
-                </BrowserRouter>
-            </body>
+            <p>{"hello world"}</p>
         </div>
     }
 }

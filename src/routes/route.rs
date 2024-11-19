@@ -7,8 +7,8 @@ pub enum Route {
     #[at("/blogs")]
     Blogs,
     #[at("/blog/:id")]
-    BlogId,
     // BlogId { id: String },
+    BlogId,
     #[at("/example")]
     Example,
     #[not_found]

@@ -1,4 +1,4 @@
-use components::core::home::Application;
+use components::core::application::Application;
 
 // web
 mod components;

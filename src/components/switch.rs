@@ -1,6 +1,9 @@
 use super::content::blog::Blog;
 use crate::{
-    components::content::blog::{Blogs, Example, Home},
+    components::{
+        content::blog::{Blogs, Example},
+        core::home::Home,
+    },
     routes::route::Route,
 };
 use yew::{html, Html};
