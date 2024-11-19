@@ -1,7 +1,16 @@
+[tasks.watch]
+install_crate = "cargo-watch"
+command = "cargo"
+args = ["watch", "-c", "-x", "clippy", "-x", "test"]
+
 [tasks.client]
 install_crate = "trunk"
 command = "trunk"
 args = ["serve", "--open"]
+
+[tasks.check]
+command = "cargo"
+args = ["check", "--all-features"]
 
 [tasks.lint]
 command = "cargo"
@@ -17,11 +26,11 @@ args = ["fmt", "--all"]
 
 # workflows
 
-[tasks.check]
-dependencies = ["format", "lint"]
+[tasks.check_all]
+dependencies = ["check", "format", "lint"]
 
 [tasks.submit]
-dependencies = ["format", "test", "lint"]
+dependencies = ["check", "format", "test", "lint"]
 
 # aliases
 
@@ -29,7 +38,7 @@ dependencies = ["format", "test", "lint"]
 alias = "client"
 
 [tasks.c]
-alias = "check"
+alias = "check_all"
 
 [tasks.s]
 alias = "submit"
