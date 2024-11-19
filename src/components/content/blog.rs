@@ -26,14 +26,14 @@ pub fn example() -> Html {
 #[function_component(Blogs)]
 pub fn blogs() -> Html {
     html! {
-        <h1>{"This is where the blogs will go"}</h1>
+        <h1>{"This is where specific blogs will be read"}</h1>
     }
 }
 
 #[function_component(Blog)]
 pub fn blog() -> Html {
     html! {
-        <h1>{"This is where the blogs will go"}</h1>
+        <h1>{"This is where all the blogs will go"}</h1>
     }
 }
 
