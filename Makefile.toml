@@ -34,6 +34,9 @@ dependencies = ["check", "format", "test", "lint"]
 
 # aliases
 
+[tasks.w]
+alias = "watch"
+
 [tasks.rc]
 alias = "client"
 
