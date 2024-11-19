@@ -12,6 +12,9 @@ pub enum Route {
     BlogId,
     #[at("/example")]
     Example,
+    #[not_found]
+    #[at("/404")]
+    NotFound,
 }
 
 impl Display for Route {
@@ -21,7 +24,7 @@ impl Display for Route {
             Route::Blogs => write!(formatter, "/blogs"),
             Route::BlogId => write!(formatter, "/blog/:id"),
             Route::Example => write!(formatter, "/example"),
-            // Route::NotFound => write!(formatter, "/"),
+            Route::NotFound => write!(formatter, "/404"),
         }
     }
 }

@@ -2,10 +2,7 @@ use yew::prelude::*;
 use yew_router::Switch;
 
 use crate::{
-    components::{
-        core::style::global_style,
-        view_switcher::switch_view,
-    },
+    components::{core::style::global_style, switch::switch},
     routes::route::Route,
 };
 
@@ -19,7 +16,8 @@ pub fn application() -> Html {
                 // <Blog/>
                 // <Blogs/>
                 // <Example/>
-                <Switch<Route> render={switch_view}/>
+
+                <Switch<Route> render={switch}/>
             </body>
         </div>
     }
