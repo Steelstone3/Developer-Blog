@@ -1,6 +1,6 @@
 use crate::routes::route::Route;
 use yew::{function_component, html, Callback, Html};
-use yew_router::{hooks::use_navigator, prelude::Link};
+use yew_router::hooks::use_navigator;
 
 #[function_component(Navigation)]
 pub fn navigation() -> Html {
