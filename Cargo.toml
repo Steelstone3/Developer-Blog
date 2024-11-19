@@ -51,6 +51,6 @@ reqwasm = "0.5"
 web-sys = "0.3"
 
 [features]
-default = ["server", "web"]
+default = []
 server = ["dep:yew-router", "dep:surrealdb"]
 web = ["dep:yew"]

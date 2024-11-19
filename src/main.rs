@@ -1,3 +1,4 @@
+#[cfg(feature = "web")]
 use components::core::application::Application;
 
 // web
