@@ -15,5 +15,21 @@ args = ["test", "--all-features"]
 command = "cargo"
 args = ["fmt", "--all"]
 
+# workflows
+
+[tasks.check]
+dependencies = ["format", "lint"]
+
 [tasks.submit]
 dependencies = ["format", "test", "lint"]
+
+# aliases
+
+[tasks.rc]
+alias = "client"
+
+[tasks.c]
+alias = "check"
+
+[tasks.s]
+alias = "submit"
