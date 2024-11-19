@@ -1,7 +1,7 @@
 [tasks.watch]
 install_crate = "cargo-watch"
 command = "cargo"
-args = ["watch", "-c", "-x", "fmt", "-x", "clippy", "-x", "test"]
+args = ["watch", "-c", "-x", "clippy", "-x", "test"]
 
 [tasks.client]
 install_crate = "trunk"

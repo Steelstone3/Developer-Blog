@@ -1,5 +1,3 @@
-use std::fmt::{Display, Formatter, Result};
-
 use yew_router::Routable;
 
 #[derive(Debug, Clone, Routable, PartialEq)]
@@ -10,21 +8,10 @@ pub enum Route {
     Blogs,
     #[at("/blog/:id")]
     BlogId,
+    // BlogId { id: String },
     #[at("/example")]
     Example,
     #[not_found]
     #[at("/404")]
     NotFound,
-}
-
-impl Display for Route {
-    fn fmt(&self, formatter: &mut Formatter<'_>) -> Result {
-        match self {
-            Route::Root => write!(formatter, "/"),
-            Route::Blogs => write!(formatter, "/blogs"),
-            Route::BlogId => write!(formatter, "/blog/:id"),
-            Route::Example => write!(formatter, "/example"),
-            Route::NotFound => write!(formatter, "/404"),
-        }
-    }
 }

@@ -1,5 +1,5 @@
 use yew::prelude::*;
-use yew_router::Switch;
+use yew_router::{BrowserRouter, Switch};
 
 use crate::{
     components::{core::style::global_style, switch::switch},
@@ -16,8 +16,9 @@ pub fn application() -> Html {
                 // <Blog/>
                 // <Blogs/>
                 // <Example/>
-
-                <Switch<Route> render={switch}/>
+                <BrowserRouter>
+                    <Switch<Route> render={switch}/>
+                </BrowserRouter>
             </body>
         </div>
     }
