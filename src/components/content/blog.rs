@@ -40,8 +40,6 @@ pub fn blog() -> Html {
     }
 }
 
-
-
 // TODO Remove example model
 use serde::Deserialize;
 
