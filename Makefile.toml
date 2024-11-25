@@ -1,0 +1,9 @@
+[tasks.client]
+# install_crate = "dioxus"
+command = "dx"
+args = ["serve", "--platform", "web"]
+
+[tasks.client2]
+install_crate = "trunk"
+command="trunk"
+args=["serve", "--open"]

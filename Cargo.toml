@@ -1,6 +1,6 @@
 [package]
-name = "developer-blog-client-web"
-version = "0.4.2"
+name = "developer-blog"
+version = "0.1.0"
 authors = ["Skippy <steelstone3@gmail.com>"]
 edition = "2021"
 homepage = "https://github.com/Steelstone3/Developer-Blog"
@@ -26,10 +26,19 @@ opt-level = 0
 opt-level = 3
 
 [dependencies]
-yew = { version = "0.21", features = ["csr"] }
-yew-router = "0.18.0"
-stylist = { version = "0.13", features = ["yew_integration"] }
-serde = { version = "1.0", features = ["derive"] }
-reqwasm = "0.5"
-web-sys = "0.3"
-developer-blog-business = { path = "../business" }
+async_once = "0.2"
+dioxus = { version = "0.5", features= ["fullstack", "router"] }
+lazy_static = "1"
+log = "0.4"
+manganis = "0.2"
+serde = "1"
+surrealdb = {version = "2", optional = true}
+tokio = "1"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+tracing-wasm = "0.2"
+
+[features]
+default = []
+# server = ["dioxus/server", "dep:surrealdb"]
+web = ["dioxus/web"]
