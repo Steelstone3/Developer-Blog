@@ -1,16 +1,16 @@
-[tasks.client]
-install_crate = "trunk"
-command="trunk"
-args=["serve", "--open"]
+# [tasks.client]
+# install_crate = "trunk"
+# command="trunk"
+# args=["serve", "--open"]
 
 [tasks.server]
 command = "cargo"
-args = ["run", "server"]
+args = ["run", "ssr"]
 
 [tasks.watch]
-install_crate = "cargo-watch"
+install_crate = "cargo-leptos"
 command = "cargo"
-args = ["watch", "-c", "-x", "test", "-x", "clippy"]
+args = ["leptos", "watch"]
 
 [tasks.format]
 command = "cargo"
@@ -46,8 +46,8 @@ dependencies = ["check", "format", "test", "lint"]
 [tasks.w]
 alias = "watch"
 
-[tasks.rc]
-alias = "client"
+# [tasks.rc]
+# alias = "client"
 
 [tasks.rs]
 alias = "server"
