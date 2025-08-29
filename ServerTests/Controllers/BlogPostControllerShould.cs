@@ -8,13 +8,13 @@ namespace ServerTests.Controllers
 {
     public class BlogPostControllerShould
     {
-        private readonly Mock<IMapper> _mockMapper;
-        private readonly BlogPostController _controller;
+        private readonly Mock<IMapper> mockMapper;
+        private readonly BlogPostController controller;
 
         public BlogPostControllerShould()
         {
-            _mockMapper = new Mock<IMapper>();
-            _controller = new BlogPostController(_mockMapper.Object);
+            mockMapper = new Mock<IMapper>();
+            controller = new BlogPostController(mockMapper.Object);
         }
 
         [Fact]
@@ -28,11 +28,11 @@ namespace ServerTests.Controllers
                 Title = "Example Title",
                 Content = "Example Content"
             };
-            _mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<object>()))
+            mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<object>()))
                        .Returns(expectedDto);
 
             // When
-            ActionResult<BlogPostDto> result = _controller.GetBlog(id);
+            ActionResult<BlogPostDto> result = controller.GetBlog(id);
 
             // Then
             OkObjectResult okResult = Assert.IsType<OkObjectResult>(result.Result);
