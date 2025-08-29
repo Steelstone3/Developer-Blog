@@ -17,19 +17,21 @@ namespace ServerTests.Repository
             Assert.Null(blog);
         }
 
-        [Fact]
-        public void GetBlogById()
+        [Theory]
+        [InlineData(0, "I like blogs", "This blog was brought to you by people who like blogs.")]
+        [InlineData(1, "No I REALLY like blogs", "This blog writter is serious!")]
+        public void GetBlogById(int id, string title, string content)
         {
             // Given
             BlogPost expectedBlogPost = new()
             {
-                Id = 0,
-                Title = "I like blogs",
-                Content = "This blog was brought to you by people who like blogs."
+                Id = id,
+                Title = title,
+                Content = content
             };
 
             // When
-            BlogPost blog = blogPostRepository.GetById(0);
+            BlogPost blog = blogPostRepository.GetById(id);
 
             // Then
             Assert.Equivalent(expectedBlogPost, blog);
