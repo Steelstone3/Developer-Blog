@@ -1,4 +1,3 @@
-using System.Net;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
