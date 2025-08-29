@@ -22,8 +22,8 @@ namespace Server.Controllers
             BlogPostDto blog = new BlogPostDto
             {
                 Id = id,
-                Name = "Example Product",
-                Price = 19.99m
+                Title = "Example Title",
+                Content = "Example Content"
             };
 
             BlogPostDto blogPostDto = _mapper.Map<BlogPostDto>(blog);
