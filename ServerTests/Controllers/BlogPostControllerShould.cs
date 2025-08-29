@@ -22,10 +22,10 @@ namespace ServerTests.Controllers
         public void GetBlog200()
         {
             // Given
-            int testId = 1;
+            int id = 1;
             BlogPostDto expectedDto = new()
             {
-                Id = testId,
+                Id = id,
                 Title = "Example Title",
                 Content = "Example Content"
             };
@@ -33,7 +33,7 @@ namespace ServerTests.Controllers
                        .Returns(expectedDto);
 
             // When
-            ActionResult<BlogPostDto> result = _controller.GetBlog(testId);
+            ActionResult<BlogPostDto> result = _controller.GetBlog(id);
 
             // Then
             OkObjectResult okResult = Assert.IsType<OkObjectResult>(result.Result);
