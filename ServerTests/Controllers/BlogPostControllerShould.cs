@@ -38,7 +38,7 @@ namespace ServerTests.Controllers
             ActionResult<BlogPostDto> result = controller.GetBlog(id);
 
             // Then
-            // blogPostRepository.VerifyAll();
+            blogPostRepository.VerifyAll();
             mockMapper.VerifyAll();
             OkObjectResult okResult = Assert.IsType<OkObjectResult>(result.Result);
             Assert.Equal(200, okResult.StatusCode);

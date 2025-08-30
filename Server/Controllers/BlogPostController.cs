@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Server.DataTransferObjects;
+using Server.Models;
 using Server.Repository;
 
 namespace Server.Controllers
@@ -21,9 +22,7 @@ namespace Server.Controllers
         [HttpGet("{id}")]
         public ActionResult<BlogPostDto> GetBlog(int id)
         {
-            // TODO AH from a data store
-            BlogPostDto blog = new(id);
-
+            BlogPost blog = blogPostRepository.GetById(id);
             BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blog);
 
             return Ok(blogPostDto);
