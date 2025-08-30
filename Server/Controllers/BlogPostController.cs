@@ -1,6 +1,7 @@
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Server.DataTransferObjects;
+using Server.Repository;
 
 namespace Server.Controllers
 {
@@ -8,25 +9,22 @@ namespace Server.Controllers
     [Route("blogs")]
     public class BlogPostController : ControllerBase
     {
-        private readonly IMapper _mapper;
+        private readonly IBlogPostRepository blogPostRepository;
+        private readonly IMapper mapper;
 
-        public BlogPostController(IMapper mapper)
+        public BlogPostController(IBlogPostRepository blogPostRepository, IMapper mapper)
         {
-            _mapper = mapper;
+            this.blogPostRepository = blogPostRepository;
+            this.mapper = mapper;
         }
 
         [HttpGet("{id}")]
         public ActionResult<BlogPostDto> GetBlog(int id)
         {
             // TODO AH from a data store
-            BlogPostDto blog = new BlogPostDto
-            {
-                Id = id,
-                Title = "Example Title",
-                Content = "Example Content"
-            };
+            BlogPostDto blog = new(id);
 
-            BlogPostDto blogPostDto = _mapper.Map<BlogPostDto>(blog);
+            BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blog);
 
             return Ok(blogPostDto);
         }

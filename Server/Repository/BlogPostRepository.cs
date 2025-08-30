@@ -9,7 +9,6 @@ namespace Server.Repository
 
         public BlogPostRepository()
         {
-            // Get the full path to the JSON file
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Repository/blog_posts.json");
             string json = File.ReadAllText(filePath);
             blogPosts = JsonSerializer.Deserialize<List<BlogPost>>(json);

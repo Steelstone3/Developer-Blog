@@ -18,17 +18,12 @@ namespace ServerTests.Repository
         }
 
         [Theory]
-        [InlineData(0, "I like blogs", "This blog was brought to you by people who like blogs.")]
-        [InlineData(1, "No I REALLY like blogs", "This blog writter is serious!")]
-        public void GetBlogById(int id, string title, string content)
+        [InlineData(0, "I like blogs", "This blog was brought to you by people who like blogs.", "Harold", "Harold@hello.com", false)]
+        [InlineData(1, "No I REALLY like blogs", "This blog writter is serious!", "Jeff", "Jeff@hello.com", true)]
+        public void GetBlogById(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
         {
             // Given
-            BlogPost expectedBlogPost = new()
-            {
-                Id = id,
-                Title = title,
-                Content = content
-            };
+            BlogPost expectedBlogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
             BlogPost blog = blogPostRepository.GetById(id);
