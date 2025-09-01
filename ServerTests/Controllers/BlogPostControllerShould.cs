@@ -48,7 +48,7 @@ namespace ServerTests.Controllers
             Assert.Equal(expectedDto.Content, returnedDto.Content);
         }
 
-        [Fact(Skip = "")]
+        [Fact(Skip = "Todo")]
         public void PostBlog200()
         {
             // Given
@@ -58,7 +58,7 @@ namespace ServerTests.Controllers
             // Then
         }
 
-        [Fact(Skip = "")]
+        [Fact(Skip = "Todo")]
         public void PatchBlog200()
         {
             // Given
@@ -68,7 +68,7 @@ namespace ServerTests.Controllers
             // Then
         }
 
-        [Fact(Skip = "")]
+        [Fact(Skip = "Todo")]
         public void PutBlog200()
         {
             // Given
@@ -78,7 +78,7 @@ namespace ServerTests.Controllers
             // Then
         }
 
-        [Fact(Skip = "")]
+        [Fact(Skip = "Todo")]
         public void DeleteBlog200()
         {
             // Given
