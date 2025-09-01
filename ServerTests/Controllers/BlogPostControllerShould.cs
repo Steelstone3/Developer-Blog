@@ -63,15 +63,35 @@ namespace ServerTests.Controllers
         }
 
         [Fact]
-        public void PostBlog200()
+        public void PostBlog409()
         {
             // Given
-            int id = 1;
+            int id = 0;
 
             BlogPost expectedModel = new(id, "Title", "Content", "Author Id", "Author Email", false);
             BlogPostDto expectedDto = new(id, "Title", "Content");
 
-            blogPostRepository.Setup(bpr => bpr.AddBlog(expectedModel));
+            blogPostRepository.Setup(bpr => bpr.AddBlog(expectedModel)).Returns(false);
+
+            // When
+            ActionResult<BlogPostDto> result = controller.PostBlogPost(expectedModel);
+
+            // Then
+            blogPostRepository.VerifyAll();
+            ConflictResult conflictResult = Assert.IsType<ConflictResult>(result.Result);
+            Assert.Equal(409, conflictResult.StatusCode);
+        }
+
+        [Fact]
+        public void PostBlog201()
+        {
+            // Given
+            int id = 99;
+
+            BlogPost expectedModel = new(id, "Title", "Content", "Author Id", "Author Email", false);
+            BlogPostDto expectedDto = new(id, "Title", "Content");
+
+            blogPostRepository.Setup(bpr => bpr.AddBlog(expectedModel)).Returns(true);
             mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<object>()))
                        .Returns(expectedDto);
 
@@ -81,9 +101,9 @@ namespace ServerTests.Controllers
             // Then
             blogPostRepository.VerifyAll();
             mockMapper.VerifyAll();
-            OkObjectResult okResult = Assert.IsType<OkObjectResult>(result.Result);
-            Assert.Equal(200, okResult.StatusCode);
-            BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(okResult.Value);
+            CreatedResult createdResult = Assert.IsType<CreatedResult>(result.Result);
+            Assert.Equal(201, createdResult.StatusCode);
+            BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(createdResult.Value);
             Assert.Equal(expectedDto.Id, returnedDto.Id);
             Assert.Equal(expectedDto.Title, returnedDto.Title);
             Assert.Equal(expectedDto.Content, returnedDto.Content);

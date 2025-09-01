@@ -37,10 +37,16 @@ namespace Server.Controllers
         [HttpPost]
         public ActionResult<BlogPostDto> PostBlogPost([FromBody] BlogPost blogPost)
         {
-            blogPostRepository.AddBlog(blogPost);
+            bool isSuccess = blogPostRepository.AddBlog(blogPost);
+
+            if (!isSuccess)
+            {
+                return Conflict();
+            }
+
             BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blogPost);
 
-            return Ok(blogPostDto);
+            return Created(string.Empty, blogPostDto);
         }
     }
 }
