@@ -33,6 +33,22 @@ namespace ServerTests.Repository
         }
 
         [Theory]
+        [InlineData(0, "New Blog", "This is a new blog.", "Harold", "Harold@hello.com", true)]
+        [InlineData(1, "Blogger Person", "What is it like to be a blogger person?", "Jeff", "Jeff@hello.com", false)]
+        public void AddBlogRequiresUniqueId(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
+        {
+            // Given
+            BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
+
+            // When
+            blogPostRepository.AddBlog(blogPost);
+
+            // Then
+            Assert.NotEmpty(blogPostRepository.BlogPosts);
+            Assert.Equal(2, blogPostRepository.BlogPosts.Count);
+        }
+
+        [Theory]
         [InlineData(2, "New Blog", "This is a new blog.", "Harold", "Harold@hello.com", true)]
         [InlineData(3, "Blogger Person", "What is it like to be a blogger person?", "Jeff", "Jeff@hello.com", false)]
         public void AddBlog(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
@@ -44,6 +60,7 @@ namespace ServerTests.Repository
             blogPostRepository.AddBlog(blogPost);
 
             // Then
+            Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.Equivalent(blogPostRepository.BlogPosts.LastOrDefault(), blogPost);
         }
     }

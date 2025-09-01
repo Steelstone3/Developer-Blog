@@ -16,7 +16,10 @@ namespace Server.Repository
 
         public void AddBlog(BlogPost blogPost)
         {
-            BlogPosts.Add(blogPost);
+            if (!BlogPosts.Select(bp => bp.Id).Contains(blogPost.Id))
+            {
+                BlogPosts.Add(blogPost);
+            }
         }
 
         public void DeleteBlogById(int id)
