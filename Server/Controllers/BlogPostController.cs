@@ -36,5 +36,15 @@ namespace Server.Controllers
 
             return Ok(blogPostDto);
         }
+
+        [HttpPost("{id}, {title}, {content}, {authorId}, {authorEmail}, {isPublished}")]
+        public ActionResult<BlogPostDto> PostBlogPost(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
+        {
+            BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
+            blogPostRepository.AddBlog(blogPost);
+            BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blogPost);
+
+            return Ok(blogPostDto);
+        }
     }
 }
