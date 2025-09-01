@@ -47,5 +47,45 @@ namespace ServerTests.Controllers
             Assert.Equal(expectedDto.Title, returnedDto.Title);
             Assert.Equal(expectedDto.Content, returnedDto.Content);
         }
+
+        [Fact(Skip = "")]
+        public void PostBlog200()
+        {
+            // Given
+
+            // When
+
+            // Then
+        }
+
+        [Fact(Skip = "")]
+        public void PatchBlog200()
+        {
+            // Given
+
+            // When
+
+            // Then
+        }
+
+        [Fact(Skip = "")]
+        public void PutBlog200()
+        {
+            // Given
+
+            // When
+
+            // Then
+        }
+
+        [Fact(Skip = "")]
+        public void DeleteBlog200()
+        {
+            // Given
+
+            // When
+
+            // Then
+        }
     }
 }
