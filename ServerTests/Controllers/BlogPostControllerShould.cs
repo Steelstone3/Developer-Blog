@@ -27,8 +27,8 @@ namespace ServerTests.Controllers
             // Given
             int id = 1;
 
-            BlogPost expectedModel = new(id, "", "", "", "", false);
-            BlogPostDto expectedDto = new(id, "", "");
+            BlogPost expectedModel = new(id, "Title", "Content", "Author Id", "Author Email", false);
+            BlogPostDto expectedDto = new(id, "Title", "Content");
 
             blogPostRepository.Setup(bpr => bpr.GetById(id)).Returns(expectedModel);
             mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<object>()))
@@ -44,6 +44,8 @@ namespace ServerTests.Controllers
             Assert.Equal(200, okResult.StatusCode);
             BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(okResult.Value);
             Assert.Equal(expectedDto.Id, returnedDto.Id);
+            Assert.Equal(expectedDto.Title, returnedDto.Title);
+            Assert.Equal(expectedDto.Content, returnedDto.Content);
         }
     }
 }
