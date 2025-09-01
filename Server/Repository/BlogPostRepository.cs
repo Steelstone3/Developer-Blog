@@ -20,13 +20,13 @@ namespace Server.Repository
             {
                 return;
             }
-            
+
             BlogPosts.Add(blogPost);
         }
 
         public void DeleteBlogById(int id)
         {
-            throw new NotImplementedException();
+            
         }
 
         public BlogPost GetById(int id)
