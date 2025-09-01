@@ -14,14 +14,16 @@ namespace Server.Repository
             BlogPosts = JsonSerializer.Deserialize<List<BlogPost>>(json);
         }
 
-        public void AddBlog(BlogPost blogPost)
+        public bool AddBlog(BlogPost blogPost)
         {
             if (IsUniqueById(blogPost.Id))
             {
-                return;
+                return false;
             }
 
             BlogPosts.Add(blogPost);
+
+            return true;
         }
 
         public void DeleteBlogById(int id)
@@ -55,7 +57,7 @@ namespace Server.Repository
     {
         List<BlogPost> BlogPosts { get; }
         BlogPost GetById(int id);
-        void AddBlog(BlogPost blogPost);
+        bool AddBlog(BlogPost blogPost);
         void DeleteBlogById(int id);
         void UpdateById(BlogPost blogPost);
     }

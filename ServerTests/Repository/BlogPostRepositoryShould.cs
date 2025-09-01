@@ -41,9 +41,10 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            blogPostRepository.AddBlog(blogPost);
+            bool isSuccess = blogPostRepository.AddBlog(blogPost);
 
             // Then
+            Assert.False(isSuccess);
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.DoesNotContain(blogPost, blogPostRepository.BlogPosts);
         }
@@ -57,9 +58,10 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            blogPostRepository.AddBlog(blogPost);
+            bool isSuccess = blogPostRepository.AddBlog(blogPost);
 
             // Then
+            Assert.True(isSuccess);
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.Equivalent(blogPostRepository.BlogPosts.LastOrDefault(), blogPost);
         }
