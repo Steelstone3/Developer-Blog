@@ -16,7 +16,7 @@ namespace Server.Repository
 
         public void AddBlog(BlogPost blogPost)
         {
-            if (BlogPosts.Select(bp => bp.Id).Contains(blogPost.Id))
+            if (IsUniqueById(blogPost.Id))
             {
                 return;
             }
@@ -26,7 +26,7 @@ namespace Server.Repository
 
         public void DeleteBlogById(int id)
         {
-            if (!BlogPosts.Select(bp => bp.Id).Contains(id))
+            if (!IsUniqueById(id))
             {
                 return;
             }
@@ -35,15 +35,18 @@ namespace Server.Repository
             BlogPosts.Remove(blogPost);
         }
 
-        public BlogPost GetById(int id)
-        {
-            return BlogPosts.FirstOrDefault(b => b.Id == id);
-        }
+        public BlogPost GetById(int id) => BlogPosts.FirstOrDefault(b => b.Id == id);
 
         public void UpdateById(int id, BlogPost blogPost)
         {
-            throw new NotImplementedException();
+            if (IsUniqueById(id))
+            {
+                return;
+            }
+
         }
+
+        private bool IsUniqueById(int id) => BlogPosts.Select(bp => bp.Id).Contains(id);
     }
 
     public interface IBlogPostRepository

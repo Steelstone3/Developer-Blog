@@ -66,6 +66,8 @@ namespace ServerTests.Repository
 
         [Theory]
         [InlineData(6)]
+        [InlineData(9)]
+        [InlineData(3)]
         public void DeleteBlogIdNotFound(int id)
         {
             // When
@@ -88,6 +90,40 @@ namespace ServerTests.Repository
             // Then
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.Equal(2, blogPostRepository.BlogPosts.Count);
+        }
+
+        [Theory]
+        [InlineData(4, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
+        [InlineData(5, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
+        [InlineData(6, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
+        public void UpdateBlogByIdNotFound(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
+        {
+            // Given
+            BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
+
+            // When
+            blogPostRepository.UpdateById(id, blogPost);
+
+            // Then
+            Assert.NotEmpty(blogPostRepository.BlogPosts);
+            Assert.DoesNotContain(blogPost, blogPostRepository.BlogPosts);
+        }
+
+        [Theory(Skip = "Ignore")]
+        [InlineData(1, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
+        [InlineData(2, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
+        [InlineData(3, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
+        public void UpdateBlogById(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
+        {
+            // Given
+            BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
+
+            // When
+            blogPostRepository.UpdateById(id, blogPost);
+
+            // Then
+            Assert.NotEmpty(blogPostRepository.BlogPosts);
+            Assert.Contains(blogPost, blogPostRepository.BlogPosts);
         }
     }
 }
