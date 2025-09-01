@@ -109,10 +109,10 @@ namespace ServerTests.Repository
             Assert.DoesNotContain(blogPost, blogPostRepository.BlogPosts);
         }
 
-        [Theory(Skip = "Ignore")]
+        [Theory]
+        [InlineData(0, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
         [InlineData(1, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
         [InlineData(2, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
-        [InlineData(3, "This is a new blog", "Hello there!", "Harold", "Harold@hello.com", true)]
         public void UpdateBlogById(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
         {
             // Given

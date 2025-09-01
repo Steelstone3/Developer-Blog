@@ -39,11 +39,13 @@ namespace Server.Repository
 
         public void UpdateById(int id, BlogPost blogPost)
         {
-            if (IsUniqueById(id))
+            if (id != blogPost.Id || !IsUniqueById(id))
             {
                 return;
             }
 
+            DeleteBlogById(id);
+            AddBlog(blogPost);
         }
 
         private bool IsUniqueById(int id) => BlogPosts.Select(bp => bp.Id).Contains(id);
