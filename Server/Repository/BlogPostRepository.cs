@@ -26,7 +26,13 @@ namespace Server.Repository
 
         public void DeleteBlogById(int id)
         {
-            
+            if (!BlogPosts.Select(bp => bp.Id).Contains(id))
+            {
+                return;
+            }
+
+            BlogPost blogPost = GetById(id);
+            BlogPosts.Remove(blogPost);
         }
 
         public BlogPost GetById(int id)

@@ -76,9 +76,10 @@ namespace ServerTests.Repository
             Assert.Equal(3, blogPostRepository.BlogPosts.Count);
         }
 
-        [Theory(Skip = "ignore")]
+        [Theory]
         [InlineData(0)]
         [InlineData(1)]
+        [InlineData(2)]
         public void DeleteBlogId(int id)
         {
             // When
