@@ -31,5 +31,20 @@ namespace ServerTests.Repository
             // Then
             Assert.Equivalent(expectedBlogPost, blog);
         }
+
+        [Theory]
+        [InlineData(2, "New Blog", "This is a new blog.", "Harold", "Harold@hello.com", true)]
+        [InlineData(3, "Blogger Person", "What is it like to be a blogger person?", "Jeff", "Jeff@hello.com", false)]
+        public void AddBlog(int id, string title, string content, string authorId, string authorEmail, bool isPublished)
+        {
+            // Given
+            BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
+
+            // When
+            blogPostRepository.AddBlog(blogPost);
+
+            // Then
+            Assert.Equivalent(blogPostRepository.BlogPosts.LastOrDefault(), blogPost);
+        }
     }
 }

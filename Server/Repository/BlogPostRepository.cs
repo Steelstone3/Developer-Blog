@@ -5,23 +5,42 @@ namespace Server.Repository
 {
     public class BlogPostRepository : IBlogPostRepository
     {
-        private readonly List<BlogPost> blogPosts;
+        public List<BlogPost> BlogPosts { get; private set; }
 
         public BlogPostRepository()
         {
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Repository/blog_posts.json");
             string json = File.ReadAllText(filePath);
-            blogPosts = JsonSerializer.Deserialize<List<BlogPost>>(json);
+            BlogPosts = JsonSerializer.Deserialize<List<BlogPost>>(json);
+        }
+
+        public void AddBlog(BlogPost blogPost)
+        {
+            BlogPosts.Add(blogPost);
+        }
+
+        public void DeleteBlogById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public BlogPost GetById(int id)
         {
-            return blogPosts.FirstOrDefault(b => b.Id == id);
+            return BlogPosts.FirstOrDefault(b => b.Id == id);
+        }
+
+        public void UpdateById(int id, BlogPost blogPost)
+        {
+            throw new NotImplementedException();
         }
     }
 
     public interface IBlogPostRepository
     {
+        List<BlogPost> BlogPosts { get; }
         BlogPost GetById(int id);
+        void AddBlog(BlogPost blogPost);
+        void DeleteBlogById(int id);
+        void UpdateById(int id, BlogPost blogPost);
     }
 }

@@ -69,16 +69,6 @@ namespace ServerTests.Controllers
         }
 
         [Fact(Skip = "Todo")]
-        public void PutBlog200()
-        {
-            // Given
-
-            // When
-
-            // Then
-        }
-
-        [Fact(Skip = "Todo")]
         public void DeleteBlog200()
         {
             // Given
