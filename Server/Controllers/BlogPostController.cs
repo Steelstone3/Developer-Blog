@@ -20,10 +20,25 @@ namespace Server.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<BlogPostDto> GetBlog(int id)
+        public ActionResult<BlogPostDto> GetBlogPost(int id)
         {
-            BlogPost blog = blogPostRepository.GetById(id);
-            BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blog);
+            BlogPost blogPost = blogPostRepository.GetById(id);
+
+            if (blogPost is null)
+            {
+                return NotFound();
+            }
+
+            BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blogPost);
+
+            return Ok(blogPostDto);
+        }
+
+        [HttpPost]
+        public ActionResult<BlogPostDto> PostBlogPost([FromBody] BlogPost blogPost)
+        {
+            blogPostRepository.AddBlog(blogPost);
+            BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blogPost);
 
             return Ok(blogPostDto);
         }
