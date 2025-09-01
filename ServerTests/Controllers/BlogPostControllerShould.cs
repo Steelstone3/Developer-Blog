@@ -28,7 +28,7 @@ namespace ServerTests.Controllers
             int id = 1;
 
             BlogPost expectedModel = new(id, "", "", "", "", false);
-            BlogPostDto expectedDto = new(id);
+            BlogPostDto expectedDto = new(id, "", "");
 
             blogPostRepository.Setup(bpr => bpr.GetById(id)).Returns(expectedModel);
             mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<object>()))
