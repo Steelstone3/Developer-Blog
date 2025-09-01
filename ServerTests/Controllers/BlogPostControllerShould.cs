@@ -80,7 +80,6 @@ namespace ServerTests.Controllers
             blogPostRepository.VerifyAll();
             ConflictResult conflictResult = Assert.IsType<ConflictResult>(result.Result);
             Assert.Equal(409, conflictResult.StatusCode);
-
         }
 
         [Fact]
