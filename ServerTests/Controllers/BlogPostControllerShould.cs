@@ -21,6 +21,29 @@ namespace ServerTests.Controllers
             controller = new BlogPostController(blogPostRepository.Object, mockMapper.Object);
         }
 
+        [Fact(Skip = "Ignore")]
+        public void GetBlog404()
+        {
+            // Given
+            // int id = 1;
+
+            // BlogPost expectedModel = new(id, "Title", "Content", "Author Id", "Author Email", false);
+            // BlogPostDto expectedDto = new(id, "Title", "Content");
+
+            blogPostRepository.Setup(bpr => bpr.GetById(It.IsAny<int>())).Returns(It.IsAny<BlogPost>());
+            mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<BlogPostDto>()))
+                       .Returns(It.IsAny<BlogPostDto>());
+
+            // When
+            ActionResult<BlogPostDto> result = controller.GetBlogPost(It.IsAny<int>());
+
+            // Then
+            blogPostRepository.VerifyAll();
+            mockMapper.VerifyAll();
+            NotFoundObjectResult notFound = Assert.IsType<NotFoundObjectResult>(result.Result);
+            Assert.Equal(404, notFound.StatusCode);
+        }
+
         [Fact]
         public void GetBlog200()
         {
