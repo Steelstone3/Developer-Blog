@@ -37,14 +37,14 @@ namespace Server.Repository
 
         public BlogPost GetById(int id) => BlogPosts.FirstOrDefault(b => b.Id == id);
 
-        public void UpdateById(int id, BlogPost blogPost)
+        public void UpdateById(BlogPost blogPost)
         {
-            if (id != blogPost.Id || !IsUniqueById(id))
+            if (!IsUniqueById(blogPost.Id))
             {
                 return;
             }
 
-            DeleteBlogById(id);
+            DeleteBlogById(blogPost.Id);
             AddBlog(blogPost);
         }
 
@@ -57,6 +57,6 @@ namespace Server.Repository
         BlogPost GetById(int id);
         void AddBlog(BlogPost blogPost);
         void DeleteBlogById(int id);
-        void UpdateById(int id, BlogPost blogPost);
+        void UpdateById(BlogPost blogPost);
     }
 }

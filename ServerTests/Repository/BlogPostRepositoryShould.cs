@@ -102,7 +102,7 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            blogPostRepository.UpdateById(id, blogPost);
+            blogPostRepository.UpdateById(blogPost);
 
             // Then
             Assert.NotEmpty(blogPostRepository.BlogPosts);
@@ -119,7 +119,7 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            blogPostRepository.UpdateById(id, blogPost);
+            blogPostRepository.UpdateById(blogPost);
 
             // Then
             Assert.NotEmpty(blogPostRepository.BlogPosts);

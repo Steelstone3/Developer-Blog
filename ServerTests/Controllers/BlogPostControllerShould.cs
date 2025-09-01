@@ -35,7 +35,34 @@ namespace ServerTests.Controllers
                        .Returns(expectedDto);
 
             // When
-            ActionResult<BlogPostDto> result = controller.GetBlog(id);
+            ActionResult<BlogPostDto> result = controller.GetBlogPost(id);
+
+            // Then
+            blogPostRepository.VerifyAll();
+            mockMapper.VerifyAll();
+            OkObjectResult okResult = Assert.IsType<OkObjectResult>(result.Result);
+            Assert.Equal(200, okResult.StatusCode);
+            BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(okResult.Value);
+            Assert.Equal(expectedDto.Id, returnedDto.Id);
+            Assert.Equal(expectedDto.Title, returnedDto.Title);
+            Assert.Equal(expectedDto.Content, returnedDto.Content);
+        }
+
+        [Fact]
+        public void PostBlog200()
+        {
+            // Given
+            int id = 1;
+
+            BlogPost expectedModel = new(id, "Title", "Content", "Author Id", "Author Email", false);
+            BlogPostDto expectedDto = new(id, "Title", "Content");
+
+            blogPostRepository.Setup(bpr => bpr.AddBlog(expectedModel));
+            mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<object>()))
+                       .Returns(expectedDto);
+
+            // When
+            ActionResult<BlogPostDto> result = controller.PostBlogPost(expectedModel);
 
             // Then
             blogPostRepository.VerifyAll();
@@ -49,27 +76,17 @@ namespace ServerTests.Controllers
         }
 
         [Fact(Skip = "Todo")]
-        public void PostBlog200()
-        {
-            // Given
-
-            // When
-
-            // Then
-        }
-
-        [Fact(Skip = "Todo")]
-        public void PatchBlog200()
-        {
-            // Given
-
-            // When
-
-            // Then
-        }
-
-        [Fact(Skip = "Todo")]
         public void DeleteBlog200()
+        {
+            // Given
+
+            // When
+
+            // Then
+        }
+
+        [Fact(Skip = "Todo")]
+        public void PutBlog200()
         {
             // Given
 
