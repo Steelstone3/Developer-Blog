@@ -5,7 +5,7 @@ namespace ServerTests.Repository
 {
     public class BlogPostRepositoryShould
     {
-        IBlogPostRepository blogPostRepository = new BlogPostRepository();
+        private readonly IBlogPostRepository blogPostRepository = new BlogPostRepository();
 
         [Fact]
         public void GetBlogByIdNotFound()
