@@ -7,9 +7,9 @@ namespace Server.Repository
     {
         public List<BlogPost> BlogPosts { get; private set; }
 
-        public BlogPostRepository()
+        public BlogPostRepository(string filePath)
         {
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Repository/blog_posts.json");
+            new Seeding().Seed(filePath);
             string json = File.ReadAllText(filePath);
             BlogPosts = JsonSerializer.Deserialize<List<BlogPost>>(json);
         }

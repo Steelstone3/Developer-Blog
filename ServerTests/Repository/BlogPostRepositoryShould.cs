@@ -3,9 +3,10 @@ using Server.Repository;
 
 namespace ServerTests.Repository
 {
-    public class BlogPostRepositoryShould
+    public class BlogPostRepositoryShould : IDisposable
     {
-        private readonly IBlogPostRepository blogPostRepository = new BlogPostRepository();
+        private const string TestFilePath = "repo_test_file.json";
+        private readonly IBlogPostRepository blogPostRepository = new BlogPostRepository(TestFilePath);
 
         [Fact]
         public void GetBlogByIdNotFound()
@@ -126,6 +127,11 @@ namespace ServerTests.Repository
             // Then
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.Contains(blogPost, blogPostRepository.BlogPosts);
+        }
+
+        public void Dispose()
+        {
+            File.Delete(TestFilePath);
         }
     }
 }

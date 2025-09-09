@@ -120,7 +120,7 @@ namespace ServerTests.Controllers
         }
 
         [Fact(Skip = "Todo")]
-        public void PutBlog200()
+        public void PatchBlog200()
         {
             // Given
 
