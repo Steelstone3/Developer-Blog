@@ -13,9 +13,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.*" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <None Update="blog_posts.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
+  </ItemGroup> -->
 </Project>

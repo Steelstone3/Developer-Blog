@@ -1,12 +1,20 @@
 using Server.Models;
 using Server.Repository;
+using static Server.Repository.Seeding;
 
 namespace ServerTests.Repository
 {
     public class BlogPostRepositoryShould : IDisposable
     {
         private const string TestFilePath = "repo_test_file.json";
-        private readonly IBlogPostRepository blogPostRepository = new BlogPostRepository(TestFilePath);
+        private readonly ISeeding seeding;
+        private readonly IBlogPostRepository blogPostRepository;
+
+        public BlogPostRepositoryShould()
+        {
+            seeding = new Seeding(TestFilePath);
+            blogPostRepository = new BlogPostRepository(seeding);
+        }
 
         [Fact]
         public void GetBlogByIdNotFound()

@@ -5,8 +5,8 @@ using Server.Repository;
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
-builder.Services.AddScoped<IBlogPostRepository, BlogPostRepository>();
-builder.Services.AddAutoMapper(cfg => 
+builder.Services.AddSingleton<IBlogPostRepository>(provider => new BlogPostRepository(new Seeding("blog_posts.json")));
+builder.Services.AddAutoMapper(cfg =>
 {
     cfg.CreateMap<BlogPost, BlogPostDto>();
 });

@@ -1,20 +1,41 @@
-public class SeedingShould : IDisposable
+using Server.Repository;
+
+namespace ServerTests.Repository
 {
-    private readonly Seeding seeding = new();
-    private const string TestFilePath = "seeding_test_file.json";
-
-    public void Dispose()
+    public class SeedingShould : IDisposable
     {
-        File.Delete(TestFilePath);
-    }
+        private Seeding seeding;
 
-    [Fact]
-    public void SeedBlogPostsFile()
-    {
-        // When
-        seeding.Seed(TestFilePath);
+        public SeedingShould()
+        {
+            seeding = new(TestFilePath);
+        }
 
-        // Then
-        Assert.True(File.Exists(TestFilePath));
+        private const string TestFilePath = "seeding_test_file.json";
+
+        [Fact]
+        public void SeedBlogPostsFile()
+        {
+            // When
+            seeding.Seed();
+
+            // Then
+            Assert.True(File.Exists(TestFilePath));
+        }
+
+        [Fact]
+        public void SeedBlogPostsNoFileNameProvided()
+        {
+            // Given
+            seeding = new(string.Empty);
+
+            // Then
+            Assert.Throws<Exception>(() => seeding.Seed());
+        }
+
+        public void Dispose()
+        {
+            File.Delete(TestFilePath);
+        }
     }
 }

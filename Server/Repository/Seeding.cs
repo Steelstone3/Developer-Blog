@@ -1,13 +1,29 @@
 using System.Text.Json;
 using Server.Models;
+using static Server.Repository.Seeding;
 
-public class Seeding
+namespace Server.Repository
 {
-    public void Seed(string filePath)
+    public class Seeding : ISeeding
     {
-        List<BlogPost> posts =
-        [
-            new BlogPost(
+
+        public Seeding(string filePath)
+        {
+            FilePath = filePath;
+        }
+
+        public string FilePath { get; private set; }
+
+        public void Seed()
+        {
+            if (string.IsNullOrWhiteSpace(FilePath))
+            {
+                throw new Exception();
+            }
+
+            List<BlogPost> blogPosts =
+            [
+                new BlogPost(
                 id: 0,
                 title: "I like blogs",
                 content: "This blog was brought to you by people who like blogs.",
@@ -31,9 +47,16 @@ public class Seeding
                 authorEmail: "Person@hello.com",
                 isPublished: false
             )
-        ];
+            ];
 
-        string jsonString = JsonSerializer.Serialize(posts, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(filePath, jsonString);
+            string jsonString = JsonSerializer.Serialize(blogPosts, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(FilePath, jsonString);
+        }
+
+        public interface ISeeding
+        {
+            string FilePath { get; }
+            void Seed();
+        }
     }
 }

@@ -19,8 +19,22 @@ namespace Server.Controllers
             this.mapper = mapper;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<BlogPostDto> GetBlogPost(int id)
+        // TODO AH Test
+        [HttpGet("all")]
+        public ActionResult<BlogPostDto> GetAllBlogPost()
+        {
+            if (blogPostRepository.BlogPosts.Count == 0)
+            {
+                return NotFound();
+            }
+
+            List<BlogPostDto> blogPostsDto = mapper.Map<List<BlogPostDto>>(blogPostRepository.BlogPosts);
+
+            return Ok(blogPostsDto);
+        }
+
+        [HttpGet]
+        public ActionResult<BlogPostDto> GetBlogPost([FromQuery] int id)
         {
             BlogPost blogPost = blogPostRepository.GetById(id);
 
