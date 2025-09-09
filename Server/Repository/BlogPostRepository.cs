@@ -31,30 +31,36 @@ namespace Server.Repository
             return true;
         }
 
-        public void DeleteBlogById(int id)
+        public bool DeleteBlogById(int id)
         {
             if (!IsUniqueById(id))
             {
-                return;
+                return false;
             }
 
             BlogPost blogPost = GetById(id);
             BlogPosts.Remove(blogPost);
 
             SerializeBlogPosts();
+
+            return true;
         }
 
         public BlogPost GetById(int id) => BlogPosts.FirstOrDefault(b => b.Id == id);
 
-        public void UpdateById(BlogPost blogPost)
+        public bool UpdateById(BlogPost blogPost)
         {
             if (!IsUniqueById(blogPost.Id))
             {
-                return;
+                return false;
             }
 
             DeleteBlogById(blogPost.Id);
             AddBlog(blogPost);
+
+            SerializeBlogPosts();
+
+            return true;
         }
 
         private bool IsUniqueById(int id) => BlogPosts.Select(bp => bp.Id).Contains(id);
@@ -71,7 +77,7 @@ namespace Server.Repository
         List<BlogPost> BlogPosts { get; }
         BlogPost GetById(int id);
         bool AddBlog(BlogPost blogPost);
-        void DeleteBlogById(int id);
-        void UpdateById(BlogPost blogPost);
+        bool DeleteBlogById(int id);
+        bool UpdateById(BlogPost blogPost);
     }
 }

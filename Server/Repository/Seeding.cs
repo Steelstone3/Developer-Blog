@@ -6,7 +6,6 @@ namespace Server.Repository
 {
     public class Seeding : ISeeding
     {
-
         public Seeding(string filePath)
         {
             FilePath = filePath;

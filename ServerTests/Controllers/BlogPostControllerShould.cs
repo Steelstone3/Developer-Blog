@@ -22,6 +22,58 @@ namespace ServerTests.Controllers
         }
 
         [Fact]
+        public void GetAllBlogs200()
+        {
+            // Given
+            List<BlogPost> expectedModels = [new(1, "Title", "Content", "Author Id", "Author Email", false)];
+            List<BlogPostDto> expectedDtos = [new(1, "Title", "Content")];
+
+            blogPostRepository.Setup(bpr => bpr.BlogPosts).Returns(expectedModels);
+            mockMapper.Setup(m => m.Map<List<BlogPostDto>>(It.IsAny<object>()))
+                       .Returns(expectedDtos);
+
+            // When
+            ActionResult<BlogPostDto> result = controller.GetAllBlogPost();
+
+            // Then
+            blogPostRepository.VerifyAll();
+            mockMapper.VerifyAll();
+            OkObjectResult okResult = Assert.IsType<OkObjectResult>(result.Result);
+            List<BlogPostDto> returnedDtos = Assert.IsType<List<BlogPostDto>>(okResult.Value);
+            Assert.Equal(expectedDtos[0].Id, returnedDtos[0].Id);
+            Assert.Equal(expectedDtos[0].Title, returnedDtos[0].Title);
+            Assert.Equal(expectedDtos[0].Content, returnedDtos[0].Content);
+        }
+
+        [Fact]
+        public void GetAllBlogs404NullBlogPosts()
+        {
+            // Given
+            blogPostRepository.Setup(repo => repo.BlogPosts).Returns((List<BlogPost>)null);
+
+            // When
+            ActionResult<BlogPostDto> result = controller.GetAllBlogPost();
+
+            // Then
+            blogPostRepository.VerifyAll();
+            Assert.IsType<NotFoundResult>(result.Result);
+        }
+
+        [Fact]
+        public void GetAllBlogs404EmptyBlogPosts()
+        {
+            // Given
+            blogPostRepository.Setup(repo => repo.BlogPosts).Returns((List<BlogPost>)new());
+
+            // When
+            ActionResult<BlogPostDto> result = controller.GetAllBlogPost();
+
+            // Then
+            blogPostRepository.VerifyAll();
+            Assert.IsType<NotFoundResult>(result.Result);
+        }
+
+        [Fact]
         public void GetBlog404()
         {
             // Given
@@ -32,6 +84,7 @@ namespace ServerTests.Controllers
             ActionResult<BlogPostDto> result = controller.GetBlogPost(id);
 
             // Then
+            blogPostRepository.VerifyAll();
             Assert.IsType<NotFoundResult>(result.Result);
         }
 
@@ -54,9 +107,8 @@ namespace ServerTests.Controllers
             // Then
             blogPostRepository.VerifyAll();
             mockMapper.VerifyAll();
-            OkObjectResult okResult = Assert.IsType<OkObjectResult>(result.Result);
-            Assert.Equal(200, okResult.StatusCode);
-            BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(okResult.Value);
+            OkObjectResult ok = Assert.IsType<OkObjectResult>(result.Result);
+            BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(ok.Value);
             Assert.Equal(expectedDto.Id, returnedDto.Id);
             Assert.Equal(expectedDto.Title, returnedDto.Title);
             Assert.Equal(expectedDto.Content, returnedDto.Content);
@@ -78,8 +130,7 @@ namespace ServerTests.Controllers
 
             // Then
             blogPostRepository.VerifyAll();
-            ConflictResult conflictResult = Assert.IsType<ConflictResult>(result.Result);
-            Assert.Equal(409, conflictResult.StatusCode);
+            Assert.IsType<ConflictResult>(result.Result);
         }
 
         [Fact]
@@ -101,22 +152,41 @@ namespace ServerTests.Controllers
             // Then
             blogPostRepository.VerifyAll();
             mockMapper.VerifyAll();
-            CreatedResult createdResult = Assert.IsType<CreatedResult>(result.Result);
-            Assert.Equal(201, createdResult.StatusCode);
-            BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(createdResult.Value);
+            CreatedResult created = Assert.IsType<CreatedResult>(result.Result);
+            BlogPostDto returnedDto = Assert.IsType<BlogPostDto>(created.Value);
             Assert.Equal(expectedDto.Id, returnedDto.Id);
             Assert.Equal(expectedDto.Title, returnedDto.Title);
             Assert.Equal(expectedDto.Content, returnedDto.Content);
         }
 
-        [Fact(Skip = "Todo")]
-        public void DeleteBlog200()
+        [Fact]
+        public void DeleteBlog404()
         {
             // Given
+            int id = 5;
+            blogPostRepository.Setup(bpr => bpr.DeleteBlogById(id)).Returns(false);
 
             // When
+            ActionResult<BlogPostDto> result = controller.DeleteBlogPost(id);
 
             // Then
+            blogPostRepository.VerifyAll();
+            Assert.IsType<NotFoundResult>(result.Result);
+        }
+
+        [Fact]
+        public void DeleteBlog204()
+        {
+            // Given
+            int id = 0;
+            blogPostRepository.Setup(bpr => bpr.DeleteBlogById(id)).Returns(true);
+
+            // When
+            ActionResult<BlogPostDto> result = controller.DeleteBlogPost(id);
+
+            // Then
+            blogPostRepository.VerifyAll();
+            Assert.IsType<NoContentResult>(result.Result);
         }
 
         [Fact(Skip = "Todo")]

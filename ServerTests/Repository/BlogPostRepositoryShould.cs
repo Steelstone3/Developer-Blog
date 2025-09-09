@@ -82,9 +82,10 @@ namespace ServerTests.Repository
         public void DeleteBlogIdNotFound(int id)
         {
             // When
-            blogPostRepository.DeleteBlogById(id);
+            bool isSuccess = blogPostRepository.DeleteBlogById(id);
 
             // Then
+            Assert.False(isSuccess);
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.Equal(3, blogPostRepository.BlogPosts.Count);
         }
@@ -96,9 +97,10 @@ namespace ServerTests.Repository
         public void DeleteBlogId(int id)
         {
             // When
-            blogPostRepository.DeleteBlogById(id);
+            bool isSuccess = blogPostRepository.DeleteBlogById(id);
 
             // Then
+            Assert.True(isSuccess);
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.Equal(2, blogPostRepository.BlogPosts.Count);
         }
@@ -113,9 +115,10 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            blogPostRepository.UpdateById(blogPost);
+            bool isSuccess = blogPostRepository.UpdateById(blogPost);
 
             // Then
+            Assert.False(isSuccess);
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.DoesNotContain(blogPost, blogPostRepository.BlogPosts);
         }
@@ -130,9 +133,10 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            blogPostRepository.UpdateById(blogPost);
+            bool isSuccess = blogPostRepository.UpdateById(blogPost);
 
             // Then
+            Assert.True(isSuccess);
             Assert.NotEmpty(blogPostRepository.BlogPosts);
             Assert.Contains(blogPost, blogPostRepository.BlogPosts);
         }

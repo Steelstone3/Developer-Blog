@@ -19,11 +19,10 @@ namespace Server.Controllers
             this.mapper = mapper;
         }
 
-        // TODO AH Test
         [HttpGet("all")]
         public ActionResult<BlogPostDto> GetAllBlogPost()
         {
-            if (blogPostRepository.BlogPosts.Count == 0)
+            if (blogPostRepository.BlogPosts is null || blogPostRepository.BlogPosts.Count == 0)
             {
                 return NotFound();
             }
@@ -61,6 +60,19 @@ namespace Server.Controllers
             BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blogPost);
 
             return Created(string.Empty, blogPostDto);
+        }
+
+        [HttpDelete]
+        public ActionResult<BlogPostDto> DeleteBlogPost([FromQuery] int id)
+        {
+            bool isSuccess = blogPostRepository.DeleteBlogById(id);
+
+            if (!isSuccess)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
     }
 }
