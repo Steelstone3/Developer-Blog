@@ -57,8 +57,19 @@ with BODY
 
 ### DELETE
 
-> DELETE <http://localhost:5000/blogs/?id=2>
+> DELETE <http://localhost:5000/blogs/?id=8>
 
-### PATCH
+### PUT
 
-> PATCH ?
+> PUT <http://localhost:5000/blogs/>
+
+```json
+{
+    "Id": 8,
+    "Title": "Updated",
+    "Content": "Updated",
+    "AuthorId": "Jeff",
+    "AuthorEmail": "Jeff@hello.com",
+    "IsPublished": true
+}
+```

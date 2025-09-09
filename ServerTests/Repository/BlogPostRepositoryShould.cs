@@ -115,7 +115,7 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            bool isSuccess = blogPostRepository.UpdateById(blogPost);
+            bool isSuccess = blogPostRepository.UpdateBlog(blogPost);
 
             // Then
             Assert.False(isSuccess);
@@ -133,7 +133,7 @@ namespace ServerTests.Repository
             BlogPost blogPost = new(id, title, content, authorId, authorEmail, isPublished);
 
             // When
-            bool isSuccess = blogPostRepository.UpdateById(blogPost);
+            bool isSuccess = blogPostRepository.UpdateBlog(blogPost);
 
             // Then
             Assert.True(isSuccess);

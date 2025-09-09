@@ -74,5 +74,20 @@ namespace Server.Controllers
 
             return NoContent();
         }
+
+        [HttpPut]
+        public ActionResult<BlogPostDto> UpdateBlogPost([FromBody] BlogPost blogPost)
+        {
+            bool isSuccess = blogPostRepository.UpdateBlog(blogPost);
+
+            if (!isSuccess)
+            {
+                return NotFound();
+            }
+
+            BlogPostDto blogPostDto = mapper.Map<BlogPostDto>(blogPost);
+
+            return Created(string.Empty, blogPostDto);
+        }
     }
 }

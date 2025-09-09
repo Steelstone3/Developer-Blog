@@ -189,14 +189,45 @@ namespace ServerTests.Controllers
             Assert.IsType<NoContentResult>(result.Result);
         }
 
-        [Fact(Skip = "Todo")]
-        public void PatchBlog200()
+        [Fact]
+        public void PutBlog404()
         {
             // Given
+            int id = 0;
+
+            BlogPost expectedModel = new(id, "Title", "Content", "Author Id", "Author Email", false);
+            BlogPostDto expectedDto = new(id, "Title", "Content");
+
+            blogPostRepository.Setup(bpr => bpr.UpdateBlog(expectedModel)).Returns(false);
 
             // When
+            ActionResult<BlogPostDto> result = controller.UpdateBlogPost(expectedModel);
 
             // Then
+            blogPostRepository.VerifyAll();
+            Assert.IsType<NotFoundResult>(result.Result);
+        }
+
+        [Fact]
+        public void PutBlog201()
+        {
+            // Given
+            int id = 0;
+
+            BlogPost expectedModel = new(id, "Title", "Content", "Author Id", "Author Email", false);
+            BlogPostDto expectedDto = new(id, "Title", "Content");
+
+            blogPostRepository.Setup(bpr => bpr.UpdateBlog(expectedModel)).Returns(true);
+            mockMapper.Setup(m => m.Map<BlogPostDto>(It.IsAny<object>()))
+                                  .Returns(expectedDto);
+
+            // When
+            ActionResult<BlogPostDto> result = controller.UpdateBlogPost(expectedModel);
+
+            // Then
+            blogPostRepository.VerifyAll();
+            mockMapper.VerifyAll();
+            Assert.IsType<CreatedResult>(result.Result);
         }
     }
 }

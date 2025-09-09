@@ -48,7 +48,7 @@ namespace Server.Repository
 
         public BlogPost GetById(int id) => BlogPosts.FirstOrDefault(b => b.Id == id);
 
-        public bool UpdateById(BlogPost blogPost)
+        public bool UpdateBlog(BlogPost blogPost)
         {
             if (!IsUniqueById(blogPost.Id))
             {
@@ -78,6 +78,6 @@ namespace Server.Repository
         BlogPost GetById(int id);
         bool AddBlog(BlogPost blogPost);
         bool DeleteBlogById(int id);
-        bool UpdateById(BlogPost blogPost);
+        bool UpdateBlog(BlogPost blogPost);
     }
 }
